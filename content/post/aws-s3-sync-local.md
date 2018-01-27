@@ -1,7 +1,7 @@
 ---
 title: "Aws S3 Sync Local"
 date: 2017-12-05
-draft: true
+draft: false
 ---
 
 # Sync a local folder to an AWS S3 bucket

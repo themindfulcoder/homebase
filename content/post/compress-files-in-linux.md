@@ -1,7 +1,7 @@
 ---
 title: "Compress Files in Linux"
 date: 2017-11-10
-draft: true
+draft: false
 ---
 
 # Compress files in Linux
