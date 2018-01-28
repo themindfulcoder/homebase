@@ -1,4 +1,3 @@
-
 [submodule "themes/paperback"]
 	path = themes/paperback
-	url = https://github.com/themindfulcoder/paperback
+	url = https://github.com/damiencaselli/paperback
