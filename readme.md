@@ -1,5 +1,3 @@
-My personal website
+Yet another programmer blog...
 
-Install: npm install
-Build: npm run build
-Launch: npm run start
+Powered by [hugo](https://github.com/gohugoio/hugo "hugo"), [paperback](https://github.com/damiencaselli/paperback "paperback"), [netlify](https://github.com/netlify "netlify") and [letsencrypt](https://letsencrypt.org/ "letsencrypt")
