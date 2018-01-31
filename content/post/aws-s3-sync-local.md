@@ -1,5 +1,5 @@
 ---
-title: "Aws S3 Sync Local"
+title: "AWS S3 Sync Local"
 date: 2017-12-05
 draft: false
 ---

@@ -1,5 +1,5 @@
 ---
-title: "Github Using Ssh on Linux"
+title: "Github Using SSH on Linux"
 date: 2018-01-29T22:46:50+02:00
 draft: true
 ---
