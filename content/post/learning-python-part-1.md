@@ -1,6 +1,6 @@
 ---
 title: "Learning Python Part 1"
-date: 2018-01-29T22:14:34+02:00
+date: 2018-02-01
 draft: false
 ---
 
