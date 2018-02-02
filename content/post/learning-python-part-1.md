@@ -202,6 +202,6 @@ ZeroDivisionError: division by zero
 
 ### Conclusion
 
-This wraps up learning python part 1, we spoke about variable, variable naming, types, type casting and arithmetic operations and some of the behavior the exhibit. Learning python part 2 will take a closer look at strings and how we can do some manipulation of strings in python.
+This wraps up learning python part 1, we spoke about variables, variable naming, types, type casting, arithmetic operations and some of the behavior they exhibit. Learning python part 2 will take a closer look at strings and how we can do some manipulation of strings in python.
 
 I hope you enjoyed reading this. Feel free to give me feedback on twitter or report an issue on github (links at the bottom of the page)
