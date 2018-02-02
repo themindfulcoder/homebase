@@ -4,11 +4,11 @@ date: 2018-02-01
 draft: false
 ---
 
-Let's begin with some information regarding python. Python has been around since 1991, that is an impressive 26 years. Python is an open source language driven by the community and managed by the [Python Software Foundation](https://www.python.org/psf-landing/ "Python Software Foundation").
+Let's begin with some information regarding Python. It has been around since 1991, that is an impressive 26 years. It is an open source language driven by the community and managed by the [Python Software Foundation](https://www.python.org/psf-landing/ "Python Software Foundation").
 
-Python focuses on readability and features multiple programming paradigms. So whether you are completely new to programming, come from an object orientated background or even feel more comfortable with a functional approach, python has you covered.
+Python focuses on readability and features multiple programming paradigms. So whether you are completely new to programming, come from an object orientated background or even feel more comfortable with a functional approach, Python has you covered.
 
-Python boasts an impressive collection of packages, over 100 000, created by a very enthusiastic community and is available to you using PyPI, more on that later. Python can run almost everywhere, on most operating systems and even embedded devices. The Python language is heavily focused on readability and getting the job done simply. Without any further delay, let's jump right in.
+Python boasts an impressive collection of packages, over 100 000, created by a very enthusiastic community and is available to you using PyPI, more on that later. It can run almost everywhere, on most operating systems and even embedded devices. Without any further delay, let's jump right in.
 
 ### Variables
 
@@ -23,14 +23,14 @@ first_name = "John"
 _pi = 3.14
 ```
 
-The above python code snippet, demonstrates creating two *variables*. `first_name` is a named placeholder for the value `John` while `_pi` is the named placeholder for the value `3.14`
+The snippet demonstrates creating two *variables*. `first_name` is a named placeholder for the value `John` while `_pi` is the named placeholder for the value `3.14`
 
-In python, there are two popular conventions for naming your variables.
+There are two popular conventions for naming your variables.
 
 1. Camel case convention `firstName`
 2. Underscore convention `first_name`
 
-The underscore convention is the *preferred* style of the python community. Whichever you choose, be sure to maintain the style throughout the project. Consistency is an important factor when it comes to readability and maintaining projects later on.
+The underscore convention is the *preferred* style of the Python community. Whichever you choose, be sure to maintain the style throughout the project. Consistency is an important factor when it comes to readability and maintaining projects later on.
 
 
 ### Types
@@ -109,9 +109,9 @@ Output
 123
 ```
 
->Note: type casting float to int will round down
+>Note: type casting float to int will only keep the whole number before the decimals.
 
-Be careful when casting types, you can cause your python script to break like in this example which complains that the `string` weight is not an `integer`
+Be careful when casting types, you can cause your script to break like in this example which complains that the `string` weight is not an `integer`
 
 ``` python
 weight = "50.5"
@@ -161,7 +161,7 @@ Output
 0.5
 ```
 
-Decimal division is the default in python, however you can change this using floats
+Decimal division is the default, however you can change this using floats
 
 ``` python
 print(6.0/2.0)
@@ -188,7 +188,7 @@ Output
 3.0
 ```
 
-One last thing to note about arithmetic in python, division by zero will cause an error.
+One last thing to note about arithmetic, division by zero will cause an error.
 
 ``` python
 print(3/0)
@@ -202,6 +202,6 @@ ZeroDivisionError: division by zero
 
 ### Conclusion
 
-This wraps up learning python part 1, we spoke about variables, variable naming, types, type casting, arithmetic operations and some of the behavior they exhibit. Learning python part 2 will take a closer look at strings and how we can do some manipulation of strings in python.
+This wraps up learning Python part 1, we spoke about variables, variable naming, types, type casting, arithmetic operations and some of the behavior they exhibit. Learning Python part 2 will take a closer look at strings and how we can do some manipulation of strings.
 
-I hope you enjoyed reading this. Feel free to give me feedback on twitter or report an issue on github (links at the bottom of the page)
+I hope you enjoyed reading this. Feel free to give me feedback on Twitter or report an issue on GitHub (links at the bottom of the page)
