@@ -2,6 +2,7 @@ baseURL = "https://www.themindfulcoder.com/"
 languageCode = "en-us"
 title = "The Mindful Coder"
 theme = "paperback"
+googleAnalytics = "UA-113445399-1"
 
 [params]
 
