@@ -4,87 +4,119 @@ date: 2018-02-05
 draft: true
 ---
 
-Alphabets, words, sentences. The very fabric of society. As developers, we are often going to need to use and manipulate strings. We are going to look at how we define strings in python, some functions available for manipulating strings and their behavior and finally we will look at how to get input from the user.
+![Languages are complex](language-word-cloud.jpg)
+Strings are at the heart of many programs. We asks our users for information that our code requires to do the task. We provide feedback to the users when the task has completed or failed. We share information with other systems. This is almost always done using strings and string manipulation.
+
+In part 2 we are going to look at how we use strings. How we can change these strings using the Python library. How we can give the information back to the user in useful manner and how to get information from the user to begin with.
+
+The outline looks like this:
+
+* Defining strings
+* Comments
+* Arithmetic operators on strings
+* String methods
+* More string methods
+* Chaining methods
+* Strings as immutables
+* String formatting
+* User Input
 
 # Defining strings
 
 Strings are defined in a number of different ways, all of which use quotes.
+
+It is recommended that you choose either the single or double quote method and stick to it through out your project for the sake of consistency.
+
+Straightforward situations look like this
 
 ``` python
 # Single quote example
 sentence = 'Where is my coffee?'
 # Double quote example
 sentence = "Where is my coffee?"
+```
+
+You will come across more complicated scenarios in which case it is recommended you use these variations
+
+``` python
 # Single quote with quotation
 sentence = 'I shouted "Hooray!"'
 # Double quote with word contraction
 sentence = "You shouldn't have"
+```
+
+When the options above aren't enough you've got these options
+
+``` python
 # Triple quote
 sentence = """You shouldn't have shouted "Hooray!" so soon."""
 # Escape Sequence
 sentence = "You shouldn't have shouted \"Hooray!\" so soon."
 ```
 
-The example above shows us how we are able to represent complex string combinations. The recommendation is to choose between the single or double method and stick to it, using the alternative method when required.
-
-The triple quote method allows for multiple line strings. It is preferred that the string starts immediately after the opening quotes and the closing quotes are on their own line. Whitespace is honored in the multiple line quote, so pay attention to any padding you might use.
+The triple quote method allows for multiple line strings. It is preferred that the string starts immediately after the opening quotes and the closing quotes are on their own line. Whitespace is honored in the multiple line quote, so pay attention to any spacing you might use.
 
 ``` python
 multiple_line = """Hello,
-I am learning Python.
-The end.
+    I am learning Python.
+        The end.
 """
-bad_example = """Hello,
-                 I am learning Python.
-                 The end.
-                 """
-print(multiple_line + "<")
-print(bad_example + "<")
+print(multiple_line)
 ```
-Output
 ``` shell
-Hello,
-I am learning Python.
-The end.
-<
-Hello,
-                 I am learning Python.
-                 The end.
-                 <
+> Hello,
+      I am learning Python.
+          The end.
 ```
 
-The escape sequence provides additional options and allows us the usage of `\` in our strings.
+A `\` in a string is not simply a backslash, it is known as an escape sequence character. Escape sequence is tricky at first because it is the combination of the escape sequence character and the **next** character that determines what will be output.
 
 ``` python
 # \' will insert a single quote.
-sentence = "He won\'t shout."
+sentence = "I won\'t shout."
 print(sentence)
+```
+``` shell
+> I won't shout.
+```
 
+``` python
 # \" will insert a double quote.
-sentence = "He shouted \"Hooray!\""
+sentence = "I shouted \"Hooray!\""
 print(sentence)
+```
+``` shell
+> I shouted "Hooray!"
+```
 
+``` python
 # \\ will insert a backslash.
 sentence = "He\\She went to the market."
 print(sentence)
+```
+``` shell
+> He\She went to the market.
+```
 
+``` python
 # \t will insert a tab.
 sentence = "Name\tAge"
 print(sentence)
+```
+``` shell
+> Name    Age
+```
 
+``` python
 # \n will insert a new line.
 sentence = "My first sentence.\nMy second sentence."
 print(sentence)
 ```
-Output
 ``` shell
-He won't shout.
-He shouted "Hooray!"
-He\She went to the market.
-Name    Age
-My first sentence.
-My second sentence.
+> My first sentence.
+  My second sentence.
 ```
+
 The escape sequence is not recommended for readability reasons. You can find out more about string literals and escape sequences in the [Python documentation](https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals "String literals")
 
 # Comments
@@ -93,6 +125,9 @@ It is common practice to provide comments with your code. Comments are used to p
 
 ``` python
 """ Documentation Comment
+
+    This uses the triple quote method, specifically the
+    double quote.
 
     These comments can be used to generate documentation
     and provide a summary of methods or classes.
@@ -106,7 +141,7 @@ It is common practice to provide comments with your code. Comments are used to p
 full_name = "" # In-line comments should be avoided
 ```
 
-# Basic string manipulation
+# Arithmetic operators on strings
 
 We can combine different strings together using concatenation or the `+` symbol.
 ``` python
@@ -116,9 +151,8 @@ separator = " "
 full_name = first_name + separator + last_name
 print(full_name)
 ```
-Output
 ``` shell
-John Doe
+> John Doe
 ```
 
 Repetition can be achieved using the `*` symbol.
@@ -127,9 +161,8 @@ cheer = "Hooray! "
 cheer = cheer * 3
 print(cheer)
 ```
-Output
 ``` shell
-Hooray! Hooray! Hooray! 
+> Hooray! Hooray! Hooray! 
 ```
 
 # String Methods
