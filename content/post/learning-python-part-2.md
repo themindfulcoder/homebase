@@ -1,45 +1,114 @@
 ---
 title: "Learning Python Part 2"
-date: 2018-01-31T07:12:07+02:00
+date: 2018-02-05
 draft: true
 ---
 
-Basic Strings
+Alphabets, words, sentences. The very fabric of society. As developers, we are often going to need to use and manipulate strings. We are going to look at how we define strings in python, some functions available for manipulating strings and their behavior and finally we will look at how to get input from the user.
 
-single_quote = 'single quote'
-double_quote = "double quote"
-mixed_sentence_1 = "They can't quit"
-mixed_sentence_2 = 'They shouted "Hooray!" when it worked'
+# Defining strings
 
-escaped_sentence_1 = 'They can\'t quite'
-escaped_sentence_2 = "They shouted \"Hooray!\" when it worked"
+Strings are defined in a number of different ways, all of which use quotes.
 
-tripple_quote = ''' This is a
-multiple line sentence or
-paragraph'''
+``` python
+# Single quote example
+sentence = 'Where is my coffee?'
+# Double quote example
+sentence = "Where is my coffee?"
+# Single quote with quotation
+sentence = 'I shouted "Hooray!"'
+# Double quote with word contraction
+sentence = "You shouldn't have"
+# Triple quote
+sentence = """You shouldn't have shouted "Hooray!" so soon."""
+# Escape Sequence
+sentence = "You shouldn't have shouted \"Hooray!\" so soon."
+```
 
-''' tripple quotes that are not assigned variables are comments '''
-# is a single line comment
+The example above shows us how we are able to represent complex string combinations. The recommendation is to choose between the single or double method and stick to it, using the alternative method when required.
 
-String Functions
+The triple quote method allows for multiple line strings. It is preferred that the string starts immediately after the opening quotes and the closing quotes are on their own line. Whitespace is honored in the multiple line quote, so pay attention to any padding you might use.
 
-lowercase_word = "hello world"
-lowercase_word = lowercase_word.upper()
-uppercase_word = "SCIENCE"
-uppercase_word = uppercase_word.lower()
+``` python
+multiple_line = """Hello,
+I am learning Python.
+The end.
+"""
+bad_example = """Hello,
+                 I am learning Python.
+                 The end.
+                 """
+print(multiple_line + "<")
+print(bad_example + "<")
+```
+Output
+``` shell
+Hello,
+I am learning Python.
+The end.
+<
+Hello,
+                 I am learning Python.
+                 The end.
+                 <
+```
 
-name = "john doe"
-name = name.title()
+The escape sequence provides additional options and allows us the usage of `\` in our strings.
 
-whitespace = "   vision     "
-whitespace = whitespace.strip().upper()
+``` python
+# \' will insert a single quote.
+sentence = "He won\'t shout."
+print(sentence)
 
-to find out what you can use, like upper refer to the python library documentation
-https://docs.python.org/3/library/stdtypes.html#string-methods
+# \" will insert a double quote.
+sentence = "He shouted \"Hooray!\""
+print(sentence)
 
-advanced string manipulation
+# \\ will insert a backslash.
+sentence = "He\\She went to the market."
+print(sentence)
 
-concatenation
+# \t will insert a tab.
+sentence = "Name\tAge"
+print(sentence)
+
+# \n will insert a new line.
+sentence = "My first sentence.\nMy second sentence."
+print(sentence)
+```
+Output
+``` shell
+He won't shout.
+He shouted "Hooray!"
+He\She went to the market.
+Name    Age
+My first sentence.
+My second sentence.
+```
+The escape sequence is not recommended for readability reasons. You can find out more about string literals and escape sequences in the [Python documentation](https://docs.python.org/3/reference/lexical_analysis.html#string-and-bytes-literals "String literals")
+
+# Comments
+
+It is common practice to provide comments with your code. Comments are used to provide context to the reader of the code.
+
+``` python
+""" Documentation Comment
+
+    These comments can be used to generate documentation
+    and provide a summary of methods or classes.
+    """
+    
+# You can also comment using a single hash
+#
+# Do not forget to keep comments accurate or it
+# will mislead the reader
+
+full_name = "" # In-line comments should be avoided
+```
+
+# Basic string manipulation
+
+We can combine different strings together using concatenation or the `+` symbol.
 ``` python
 first_name = "John"
 last_name = "Doe"
@@ -47,17 +116,86 @@ separator = " "
 full_name = first_name + separator + last_name
 print(full_name)
 ```
-
->John Doe
-
-duplication
-``` python
-item = "[item], "
-item = item * 3
-print(item)
+Output
+``` shell
+John Doe
 ```
 
->[item], [item], [item]
+Repetition can be achieved using the `*` symbol.
+``` python
+cheer = "Hooray! "
+cheer = cheer * 3
+print(cheer)
+```
+Output
+``` shell
+Hooray! Hooray! Hooray! 
+```
+
+# String Methods
+
+The string type has a number of methods for you to use. These methods are made available by the Python library. You can read more about all the methods in the [Python documentation](https://docs.python.org/3/library/stdtypes.html#string-methods "String methods")
+
+``` python
+>>> sentence = "wHeRe iS My CoFFee"
+>>> print(sentence.capitalize())
+Where is my coffee
+
+>>> print(sentence.lower())
+where is my coffee
+
+>>> print(sentence.upper())
+WHERE IS MY COFFEE
+
+>>> print(sentence.title())
+Where Is My Coffee
+```
+
+Let's have a look at some more methods used with the string type.
+
+``` python
+>>> sentence = "   wHeRe iS My CoFFee   "
+>>> print(sentence)
+   wHeRe iS My CoFFee   
+
+>>> print(sentence.count("e"))
+4
+
+>>> print(sentence.count("ee"))
+1
+
+>>> print(sentence.strip())
+wHeRe iS My CoFFee
+
+>>> print(sentence.strip().strip('ewF'))
+HeRe iS My Co
+```
+
+The last example used method chaining. You can call methods one after another without having to assign it to the variable in multiple steps, you can also chain different methods together.
+
+``` python
+>>> sentence = "   hello world!!!##    "
+>>> print(sentence)
+   hello world!!!##    
+>>> sentence = sentence.strip()
+>>> print(sentence)
+hello world!!!##
+>>> sentence = sentence.strip("#")
+>>> print(sentence)
+hello world!!!
+>>> sentence = sentence.upper()
+>>> print(sentence)
+HELLO WORLD!!!
+```
+
+The above can be achieved like this
+
+``` python
+>>> sentence = "   hello world!!!##    "
+>>> sentence = sentence.strip().strip("#").upper()
+>>> print(sentence)
+HELLO WORLD!!!
+```
 
 replace
 ``` python
@@ -83,17 +221,6 @@ print(sentence)
 ```
 
 >three simple words
-
-count
-
-``` python
-sentence = "three simple words"
-print(sentence.count("e"))
-print(sentence.count("ee"))
-```
-
->3
->1
 
 formatting
 
