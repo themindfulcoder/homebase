@@ -9,17 +9,15 @@ Strings are at the heart of many programs. We asks our users for information tha
 
 In part 2 we are going to look at how we use strings. How we can change these strings using the Python library. How we can give the information back to the user in useful manner and how to get information from the user to begin with.
 
-The outline looks like this:
-
-* Defining strings
-* Comments
-* Arithmetic operators on strings
-* String methods
-* More string methods
-* Chaining methods
-* Strings as immutables
-* String formatting
-* User Input
+* [Defining strings](#defining-strings)
+* [Comments](#comments)
+* [Arithmetic operators on strings](#arithmetic-operators-on-strings)
+* [String methods](#string-methods)
+* [More string methods](#more-string-methods)
+* [Chaining methods](#chaining-methods)
+* [Strings as immutables](#strings-as-immutables)
+* [String formatting](#string-formatting)
+* [User Input](#user-input)
 
 # Defining strings
 
@@ -144,6 +142,7 @@ full_name = "" # In-line comments should be avoided
 # Arithmetic operators on strings
 
 We can combine different strings together using concatenation or the `+` symbol.
+
 ``` python
 first_name = "John"
 last_name = "Doe"
@@ -156,6 +155,7 @@ print(full_name)
 ```
 
 Repetition can be achieved using the `*` symbol.
+
 ``` python
 cheer = "Hooray! "
 cheer = cheer * 3
@@ -167,84 +167,123 @@ print(cheer)
 
 # String Methods
 
-The string type has a number of methods for you to use. These methods are made available by the Python library. You can read more about all the methods in the [Python documentation](https://docs.python.org/3/library/stdtypes.html#string-methods "String methods")
+The string type has a number of methods for you to use. These methods are made
+available by the Python library. You can read more about all the methods in 
+the [Python documentation](https://docs.python.org/3/library/stdtypes.html#string-methods "String methods")
+
+Using the `capitalize` method, only the first character will be uppercase and
+the remaining characters will be lowercase. Keep in mind that it is the very
+first character and not the letter of an alphabet that it will try to uppercase.
 
 ``` python
->>> sentence = "wHeRe iS My CoFFee"
->>> print(sentence.capitalize())
-Where is my coffee
-
->>> print(sentence.lower())
-where is my coffee
-
->>> print(sentence.upper())
-WHERE IS MY COFFEE
-
->>> print(sentence.title())
-Where Is My Coffee
+sentence = "wHeRe iS My CoFFee"
+print(sentence.capitalize())
+print(" hello")
+```
+``` shell
+> Where is my coffee
+>  hello
 ```
 
-Let's have a look at some more methods used with the string type.
+Using the `lower` method will return the string with all lowercase characters.
 
 ``` python
->>> sentence = "   wHeRe iS My CoFFee   "
->>> print(sentence)
-   wHeRe iS My CoFFee   
-
->>> print(sentence.count("e"))
-4
-
->>> print(sentence.count("ee"))
-1
-
->>> print(sentence.strip())
-wHeRe iS My CoFFee
-
->>> print(sentence.strip().strip('ewF'))
-HeRe iS My Co
+sentence = "wHeRe iS My CoFFee"
+print(sentence.lower())
+```
+``` shell
+> where is my coffee
 ```
 
-The last example used method chaining. You can call methods one after another without having to assign it to the variable in multiple steps, you can also chain different methods together.
+Similarly, using the `upper` method will return the string with all uppercase
+characters.
 
 ``` python
->>> sentence = "   hello world!!!##    "
->>> print(sentence)
-   hello world!!!##    
->>> sentence = sentence.strip()
->>> print(sentence)
-hello world!!!##
->>> sentence = sentence.strip("#")
->>> print(sentence)
-hello world!!!
->>> sentence = sentence.upper()
->>> print(sentence)
-HELLO WORLD!!!
+sentence = "wHeRe iS My CoFFee"
+print(sentence.upper())
+```
+``` shell
+> WHERE IS MY COFFEE
 ```
 
-The above can be achieved like this
+Using the `title` method, will capitalize the first letter of each word
+separated by a space. Apostrophe's used for word contraction may lead to
+undesired results. You can find a way around that scenario [here](https://docs.python.org/3/library/stdtypes.html#str.title)
 
 ``` python
->>> sentence = "   hello world!!!##    "
->>> sentence = sentence.strip().strip("#").upper()
->>> print(sentence)
-HELLO WORLD!!!
+sentence = "wHeRe iS My CoFFee"
+print(sentence.title())
+print("you're a python legend".title())
+```
+``` shell
+> Where Is My Coffee
+> You'Re A Python Legend
 ```
 
-replace
+# More string methods
+
+You can do a lot more than simply change the capitalization of your string.
+For example, we can `count` how many occurrences there are of a string within
+your string.
+
 ``` python
-sentence = "The dog chased the cat"
+sentence = "how much wood would a wood chuck wood if a wood chuck could chuck wood"
+print(sentence.count("wood"))
+print(sentence.count("would"))
+```
+``` shell
+> 5
+> 1
+```
+
+We can also remove any unwanted *whitespace* from the *leading* and *trailing* part
+of our string using the `strip` method.
+
+``` python
+sentence = "   wHeRe iS My CoFFee   "
+print(sentence)
+print(sentence.strip())
+```
+``` shell
+>   wHeRe iS My CoFFee   
+> wHeRe iS My CoFFee
+```
+
+The `strip` method can take on a argument for characters to strip from the
+*leading* and *trailing* part of our string. The order of the characters
+in the argument does not matter. Note, that this does not remove all
+occurrences of the characters but only if they are the leading or
+trailing part of the string. The characters in the argument are also case
+sensitive.
+
+``` python
+sentence = "   wHeRe iS My CoFFee   "
+print(sentence.strip('efsw'))
+print(sentence.strip('e fsw'))
+```
+``` shell
+>    wHeRe iS My CoFFee   
+> HeRe iS My CoFF
+```
+
+Using the `replace` method we can substitute an *old* set of characters for
+a *new* set of characters within a string.
+
+``` python
+sentence = "the dog chased the cat"
 sentence = sentence.replace("dog", "canine")
 sentence = sentence.replace("cat", "feline")
 print(sentence)
 sentence = sentence.replace("the", "a")
 print(sentence)
-sentence = sentence.replace("ine", "t")
-print(sentence)
+```
+``` shell
+> the canine chased the feline
+> a canine chased a feline
 ```
 
->The canine chased the feline
->The canine chased a feline
->The cant chased a felt
+The `replace` method takes a third argument, *count*, which can limit how
+many occurrences to replace in the string.
 
 ``` python
 sentence = "words words words"
@@ -252,8 +291,79 @@ sentence = sentence.replace("words", "three", 1)
 sentence = sentence.replace("words", "simple", 1)
 print(sentence)
 ```
+``` shell
+> three simple words
+```
 
->three simple words
+# Chaining methods
+
+Until now we've seen a variety of ways to manipulate strings using methods.
+These methods can be *chained* together. Have a look at the example below
+which tries to create a friendly readable string from a filename.
+
+``` python
+file_name = "[Book]_learning-python-book-part-2.pdf"
+print(file_name)
+file_name = file_name.lower()
+print(file_name)
+file_name = file_name.replace("book", "", 1)
+print(file_name)
+file_name = file_name.replace("pdf", "")
+print(file_name)
+file_name = file_name.strip("[]_.")
+print(file_name)
+file_name = file_name.replace("-", " ")
+print(file_name)
+file_name = file_name.title()
+print(file_name)
+```
+``` shell
+> [Book]_learning-python-book-part-2.pdf
+> [book]_learning-python-book-part-2.pdf
+> []_learning-python-book-part-2.pdf
+> []_learning-python-book-part-2.
+> learning-python-book-part-2
+> learning python book part 2
+> Learning Python Book Part 2
+```
+
+We can *chain* the methods together to look like this
+``` python
+file_name = "[Book]_learning-python-book-part-2.pdf"
+file_name = file_name.lower().replace("book", "", 1).replace("pdf", "")
+file_name = file_name.strip("[]_.").replace("-", " ").title()
+print(file_name)
+```
+``` shell
+> Learning Python Book Part 2
+```
+
+# Strings as immutables
+
+Strings are immutable but what does that even mean? Simply it just means
+that it can't be modified once created. The string methods actually return
+completely new string objects and don't manipulate the original string at
+all. That does not mean we can't assign new values to our string variable
+it only means that the string object can not be modified.
+
+``` python
+sentence = "hello world"
+print(sentence)
+print(sentence.title())
+print(sentence)
+sentence = sentence.title()
+print(sentence)
+```
+``` shell
+> hello world
+> Hello World
+> hello world
+> Hello World
+```
+
+# String formatting
+# User Input
+
 
 formatting
 
