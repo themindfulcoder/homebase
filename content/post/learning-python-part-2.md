@@ -344,28 +344,125 @@ Strings are immutable but what does that even mean? Simply it just means
 that it can't be modified once created. The string methods actually return
 completely new string objects and don't manipulate the original string at
 all. That does not mean we can't assign new values to our string variable
-it only means that the string object can not be modified.
+it only means that the string object that the variables point to can not
+be modified.
 
 ``` python
 sentence = "hello world"
 print(sentence)
-print(sentence.title())
+print(sentence.upper())
 print(sentence)
-sentence = sentence.title()
+sentence = sentence.upper()
 print(sentence)
 ```
 ``` shell
 > hello world
-> Hello World
+> HELLO WORLD
 > hello world
-> Hello World
+> HELLO WORLD
 ```
 
 # String formatting
-# User Input
+
+The string type has a method `format` which is an extremely powerful way to
+present information as a string. The `format` method works a little like the
+replace method. You specify a format with placeholders, `{}` and then provide
+it with the parameters to place in those placeholders.
+
+``` python
+#!/usr/bin/env python3
+first_name = "Dwayne"
+last_name = "Hinterlang"
+full_name_format = "{}, {}"
+full_name = full_name_format.format(last_name, first_name)
+print(full_name)
+```
+``` shell
+> Hinterlang, Dwayne
+```
+The `{}` got replaced with the variable values passed as parameters in the format
+method. How did it know which variable goes where? When using just `{}` the format
+method uses *implicit* positioning. The first parameter will replace the first
+occurrence of `{}`, the second parameter will replace the second `{}` and so on.
+
+We can get more control over this by using *explicit* positioning.
+``` python
+#!/usr/bin/env python3
+first_name = "Dwayne"
+last_name = "Hinterlang"
+full_name_format = "{1}, {0}"
+full_name = full_name_format.format(first_name, last_name)
+print(full_name)
+```
+``` shell
+> Hinterlang, Dwayne
+```
+Our format in this example has numbers inside the `{}` these numbers are parameter
+index values. Parameters are zero indexed meaning the first parameters index value
+is zero. Our format method will now replace our placeholder with the specific
+parameter at the index we specified. In the example, `{1}` refers to the parameter
+at position 1, which is `last_name`
+
+`format` can also specify the minimum amount of character space a parameter can use.
+This is called padding.
+``` python
+#!/usr/bin/env python3
+padded = "Hello"
+not_padded = "World"
+pad_format = "{0:10}{1}"
+print(pad_format(padded, not_padded))
+```
+``` shell
+>      HelloWorld
+```
+The format string `{0:10}` now says, for the parameter at index zero `0` apply
+these rules `:` to take up at minimum 10 character spaces or pad 10 `10`
+
+We can specify which side the padding will be applied.
+``` python
+#!/usr/bin/env python3
+pad_on_right = "Hello"
+pad_on_left = "World"
+pad_format = "{0:<10}|{1:>10}"
+print(pad_format(padded, not_padded))
+```
+``` shell
+> Hello     |     World
+```
 
 
-formatting
+ Let's look at an example where we try display
+a shopping list receipt
+
+``` python
+#!/usr/bin/env python3
+
+price1 = 4.99
+quantity1 = 3
+name1 = "Item 1"
+description1 = "An every day item"
+total1 = price1 * quantity1
+
+price2 = 2.67
+quantity2 = 5
+name2 = "Item 2"
+description2 = "A cost effective condiment for steak"
+total2 = price2 * quantity2
+
+
+# Print a heading
+print("Name Description Price Qty Total")
+# Print a line item
+print(name1 + ' ' + description1 + ' ' + str(price1) + ' ' + str(quantity1) + ' ' + str(total1))
+print(name2 + ' ' + description2 + ' ' + str(price2) + ' ' + str(quantity2) + ' ' + str(total2))
+```
+``` shell
+> Name Description Price Qty Total
+> Item 1 An every day item 4.99 3 14.97
+> Item 2 A cost effective condiment for steak 2.67 5 13.35
+```
+
+This is okay, all the information is being displayed but it is terrible to read.
 
 [String Formatting Doc]("https://docs.python.org/3/library/string.html#formatstrings")
 
@@ -377,17 +474,20 @@ print("{:8.2f}".format(123.123456789)) # Float with precision of 2 and padding o
 print("{:052f}".format(123.123456789)) # Float with precision of 2 and padding of 8, zero filled
 [See the format specification mini-language]("https://docs.python.org/3/library/string.html#formatspec")
 
-# positional formatting
+# implicit positional formatting
+print("{} is from {}".format("John", "Earth"))
+# explicit positional formatting
 print("{0} is from {1}".format("John", "Earth"))
 
 # alias formatting
 print("{last_name}, {first_name}".format(
+
     first_name="John",
     last_name="Doe"
 ))
 ```
 
-User input
+# User Input
 
 ``` python
 first_name = str(input("What is your first name? "))
