@@ -5,9 +5,14 @@ draft: true
 ---
 
 ![Languages are complex](language-word-cloud.jpg)
-Strings are at the heart of many programs. We asks our users for information that our code requires to do the task. We provide feedback to the users when the task has completed or failed. We share information with other systems. This is almost always done using strings and string manipulation.
+Strings are at the heart of many programs. We asks our users for information
+that our code requires to do the task. We provide feedback to the users when the
+task has completed or failed. We share information with other systems. This is
+almost always done using strings and string manipulation.
 
-In part 2 we are going to look at how we use strings. How we can change these strings using the Python library. How we can give the information back to the user in useful manner and how to get information from the user to begin with.
+In part 2 we are going to look at how we use strings. How we can change these
+strings using the Python library. How we can give the information back to the 
+user in useful manner and how to get information from the user to begin with.
 
 - [Defining strings](#defining-strings)
 - [Comments](#comments)
@@ -23,7 +28,8 @@ In part 2 we are going to look at how we use strings. How we can change these st
 
 Strings are defined in a number of different ways, all of which use quotes.
 
-It is recommended that you choose either the single or double quote method and stick to it through out your project for the sake of consistency.
+It is recommended that you choose either the single or double quote method and 
+stick to it throughout your project for the sake of consistency.
 
 Straightforward situations look like this
 
@@ -34,7 +40,8 @@ sentence = 'Where is my coffee?'
 sentence = "Where is my coffee?"
 ```
 
-You will come across more complicated scenarios in which case it is recommended you use these variations
+You will come across more complicated scenarios in which case it is recommended 
+you use these variations
 
 ``` python
 # Single quote with quotation
@@ -52,7 +59,10 @@ sentence = """You shouldn't have shouted "Hooray!" so soon."""
 sentence = "You shouldn't have shouted \"Hooray!\" so soon."
 ```
 
-The triple quote method allows for multiple line strings. It is preferred that the string starts immediately after the opening quotes and the closing quotes are on their own line. Whitespace is honored in the multiple line quote, so pay attention to any spacing you might use.
+The triple quote method allows for multiple line strings. It is preferred that 
+the string starts immediately after the opening quotes and the closing quotes 
+are on their own line. Whitespace is honored in multiple line quote, so pay 
+attention to any spacing you might use.
 
 ``` python
 multiple_line = """Hello,
@@ -67,7 +77,8 @@ print(multiple_line)
           The end.
 ```
 
-A `\` in a string is not simply a backslash, it is known as an escape sequence character. Escape sequence is tricky at first because it is the combination of the escape sequence character and the **next** character that determines what will be output.
+A `\` in a string is not simply a backslash, it is known as the *escape sequence*.
+Here are some examples of common uses of the *escape sequence*.
 
 ``` python
 # \' will insert a single quote.
@@ -141,7 +152,7 @@ full_name = "" # In-line comments should be avoided
 
 # Arithmetic operators on strings
 
-We can combine different strings together using concatenation or the `+` symbol.
+We can combine different strings together using concatenation `+`.
 
 ``` python
 first_name = "John"
@@ -168,28 +179,25 @@ print(cheer)
 # String Methods
 
 The string type has a number of methods for you to use. These methods are made
-available by the Python library. You can read more about all the methods in 
-the [Python documentation](https://docs.python.org/3/library/stdtypes.html#string-methods "String methods")
+available by the Python library. More information on string methods can be found
+[here](https://docs.python.org/3/library/stdtypes.html#string-methods "String methods")
 
 Using the `capitalize` method, only the first character will be uppercase and
-the remaining characters will be lowercase. Keep in mind that it is the very
-first character and not the letter of an alphabet that it will try to uppercase.
+the remaining characters will be lowercase.
 
 ``` python
-sentence = "wHeRe iS My CoFFee"
-print(sentence.capitalize())
-print(" hello")
+print("wHeRe iS My CoFFee".capitalize())
+print(" hello".capitalize())
 ```
 ``` bash
-> Where is my coffee
+> Where is my coffee 123
 >  hello
 ```
 
-Using the `lower` method will return the string with all lowercase characters.
+Using the `lower` method will return a string with all lowercase characters.
 
 ``` python
-sentence = "wHeRe iS My CoFFee"
-print(sentence.lower())
+print("wHeRe iS My CoFFee".lower())
 ```
 ``` bash
 > where is my coffee
@@ -211,8 +219,7 @@ separated by a space. Apostrophe's used for word contraction may lead to
 undesired results. You can find a way around that scenario [here](https://docs.python.org/3/library/stdtypes.html#str.title)
 
 ``` python
-sentence = "wHeRe iS My CoFFee"
-print(sentence.title())
+print("wHeRe iS My CoFFee".title())
 print("you're a python legend".title())
 ```
 ``` bash
@@ -224,20 +231,20 @@ print("you're a python legend".title())
 
 You can do a lot more than simply change the capitalization of your string.
 For example, we can `count` how many occurrences there are of a string within
-your string.
+a string.
 
 ``` python
-sentence = "how much wood would a wood chuck wood if a wood chuck could chuck wood"
+sentence = "how much wood would a wood chuck chuck if a wood chuck could chuck wood"
 print(sentence.count("wood"))
 print(sentence.count("would"))
 ```
 ``` bash
-> 5
+> 4
 > 1
 ```
 
-We can also remove any unwanted *whitespace* from the *leading* and *trailing* part
-of our string using the `strip` method.
+We can also remove any unwanted *whitespace* from the *leading* and *trailing* 
+part of our string using the `strip` method.
 
 ``` python
 sentence = "   wHeRe iS My CoFFee   "
@@ -249,29 +256,16 @@ print(sentence.strip())
 > wHeRe iS My CoFFee
 ```
 
-The `strip` method can take on a argument for characters to strip from the
-*leading* and *trailing* part of our string. The order of the characters
-in the argument does not matter. Note, that this does not remove all
-occurrences of the characters but only if they are the leading or
-trailing part of the string. The characters in the argument are also case
-sensitive.
-
-``` python
-sentence = "  []example.com"
-characters_to_remove = "[] mo.c"
-print(sentence.strip(characters_to_remove))
-```
-``` bash
-> example
-```
+The `strip` method can take on a *chars* argument, a string containing the 
+characters to strip from the *leading* and *trailing* parts of our string. 
+The *chars* argument is case sensitive.
 
 ``` python
 sentence = "   wHeRe iS My CoFFee   "
-print(sentence.strip('efsw'))
-print(sentence.strip('e fsw'))
+characters_to_remove = "e fsw"
+print(sentence.strip(characters_to_remove))
 ```
 ``` bash
->    wHeRe iS My CoFFee   
 > HeRe iS My CoFF
 ```
 
@@ -350,11 +344,9 @@ print(file_name)
 # Strings as immutables
 
 Strings are immutable but what does that even mean? Simply it just means
-that it can't be modified once created. The string methods actually return
-completely new string objects and don't manipulate the original string at
-all. That does not mean we can't assign new values to our string variable
-it only means that the string object that the variables point to can not
-be modified.
+that it can't be modified once created. The methods actually return completely 
+new strings and don't manipulate the original variable at all. We can however 
+assign the return value of the method to our variable.
 
 ``` python
 sentence = "hello world"
@@ -374,11 +366,10 @@ print(sentence)
 # String formatting
 
 The string type has a `format` method which is an extremely powerful way to
-present information as a string. It method works a little like the `replace`
+present information as a string. The method works a little like the `replace`
 method and uses a *replacement field* surrounded by curly braces `{}`.
 
 ``` python
-#!/usr/bin/env python3
 sentence = "My {} sentence"
 replacement_field = "original"
 print(sentence.format(replacement_field))
@@ -387,11 +378,10 @@ print(sentence.format(replacement_field))
 > My original sentence
 ```
 
-We can do this with multiple variables at a time.
-
-The example uses *implicit* positioning. The first parameter in `format` will
-replace the first occurrence of a *replacement field*, the second parameter will
-replace the second occurrence of a *replacement field* and so on.
+We can do this with multiple variables at a time, We can use *implicit* 
+positioning. The first parameter in `format` will replace the first occurrence 
+of a *replacement field*, the second parameter will replace the second 
+occurrence of a *replacement field* and so on.
 
 ``` python
 sentence = "{} {} {}"
@@ -411,45 +401,39 @@ print(sentence.format(month_1, month_2, month_3))
 ```
 
 We can get more control of which parameter to use with our *replacement field* 
-using *explicit* positioning.
-
-In this example the *replacement field* has a *parameter index value*.
-A *parameter index value* begin from zero and indicate the position of which
-parameter to use. This means that the first parameter, `first_name` an index of
-zero, the second parameter `last_name` will then have an index of one. In the
-example, `{1}` refers to the parameter with an index of one which is the
-variable `last_name`.
+using *explicit* positioning, The *replacement field* has a *parameter index 
+value*. The *parameter index value* begins at zero and indicates the position 
+of which parameter to use. This means that the first parameter, `first_name` 
+has an index of zero, the second parameter `last_name` will then have an index 
+of one.
 
 ``` python
-#!/usr/bin/env python3
-first_name = "Dwayne"
-last_name = "Hinterlang"
+first_name = "John"
+last_name = "Doe"
 
 full_name = "{1}, {0}"
 
 print(full_name.format(first_name, last_name))
 ```
 ``` bash
-> Hinterlang, Dwayne
+> Doe, John
 ```
 
 We can also use *explicit* positioning using a *field name* which is many times
-more readable. This example uses `{last_name}` as a *replacement field*. It uses
-`last_name` as the field name. The way we provide parameters changes as well in
-this example. We assign the variable `my_last_name` to the field name `last_name`
+more readable. `{last_name}` is a *replacement field* using the field name 
+`last_name`. The way we provide parameters to `format` changes as well. We 
+assign the variable `my_last_name` to the field name `last_name`
 
 ``` python
-#!/usr/bin/env python3
-
-my_first_name = "Dwayne"
-my_last_name = "Hinterlang"
+my_first_name = "John"
+my_last_name = "Doe"
 full_name = "{last_name}, {first_name}"
 print(full_name.format(
     last_name = my_last_name,
     first_name = my_first_name))
 ```
 ``` bash
-Hinterlang, Dwayne
+Doe, John
 ```
 
 Now that we can position the parameters, we can apply the [Format Specification](https://docs.python.org/3/library/string.html#format-specification-mini-language)
@@ -459,7 +443,6 @@ a parameter can use. This is called padding. In this example we specify a
 *replacement field* with a padding of ten.
 
 ``` python
-#!/usr/bin/env python3
 word1 = "Hello"
 word2 = "World"
 sentence = "{0:10}{1}"
@@ -484,7 +467,7 @@ print(output.format(left, center, right))
 > |Left      |       Center       |     Right|
 ```
 
-We can also format other data types like *decimal* and *float* which has a
+We can also format other data types like *decimal* and *float*, which has a
 default precision of six and applies rounding.
 
 ``` python
@@ -493,11 +476,11 @@ print("{:f}".format(123.123456789)) # Float
 ```
 ``` bash
 12
-12.123457
+123.123457
 ```
 
 This example looks at specifying the precision to use `.2f`, combining it with
-padding `8.2f` as well as choosing a fill character other than space `08.2f`.
+padding `8.2f` as well as choosing zero as a fill character `08.2f`.
 
 ``` python
 print("{:.2f}".format(123.123456789))
@@ -512,17 +495,16 @@ print("{:08.2f}".format(123.123456789))
 
 # User Input
 
-Getting information from the user to do a task for the user is important. In
-this example I show you the `input` method which provides the user with a prompt
-and then waits for the user to type in information and save it as a variable.
+The `input` method provides the user with a prompt and waits for them to type 
+in information which we assign to a variable.
 
 ``` python
 name = input("Name: ")
 print(name)
 ```
 ``` bash
-> Name: Dwayne
-> Dwayne
+> Name: John
+> John
 ```
 
 We can use type casting with the `input` method, this can lead to errors for the
@@ -535,16 +517,15 @@ age = int(input("Age: "))
 print(age)
 ```
 ``` base
-> Age: 30
-> 30
-> Age: thirty
-> ValueError: invalid literal for int() with base 10: 'thirty'
+> Age: 12
+> 12
+> Age: twelve
+> ValueError: invalid literal for int() with base 10: 'twelve'
 ```
 
-An example with a little of everything
+Finally we can achieve something like this.
 
 ``` python
-#!/usr/bin/env python3
 first_name = str(input("What is your first name? "))
 middle_name = str(input("What is your middle name? "))
 last_name = str(input("What is your last name? "))
@@ -563,5 +544,11 @@ print(candidate.format(
 ))
 ```
 ``` bash
->  30 - Dwayne, L. Hinterlang
+> What is your first name? John
+> What is your middle name? Matthew
+> What is your last name? Doe
+> How old are you? 12
+>  12 - John, M. Doe
 ```
+
+I hope you enjoyed reading this. Feel free to give me feedback on Twitter or report an issue on GitHub (links at the bottom of the page)
