@@ -9,15 +9,15 @@ Strings are at the heart of many programs. We asks our users for information tha
 
 In part 2 we are going to look at how we use strings. How we can change these strings using the Python library. How we can give the information back to the user in useful manner and how to get information from the user to begin with.
 
-* [Defining strings](#defining-strings)
-* [Comments](#comments)
-* [Arithmetic operators on strings](#arithmetic-operators-on-strings)
-* [String methods](#string-methods)
-* [More string methods](#more-string-methods)
-* [Chaining methods](#chaining-methods)
-* [Strings as immutables](#strings-as-immutables)
-* [String formatting](#string-formatting)
-* [User Input](#user-input)
+- [Defining strings](#defining-strings)
+- [Comments](#comments)
+- [Arithmetic operators on strings](#arithmetic-operators-on-strings)
+- [String Methods](#string-methods)
+- [More string methods](#more-string-methods)
+- [Chaining methods](#chaining-methods)
+- [Strings as immutables](#strings-as-immutables)
+- [String formatting](#string-formatting)
+- [User Input](#user-input)
 
 # Defining strings
 
@@ -61,7 +61,7 @@ multiple_line = """Hello,
 """
 print(multiple_line)
 ```
-``` shell
+``` bash
 > Hello,
       I am learning Python.
           The end.
@@ -74,7 +74,7 @@ A `\` in a string is not simply a backslash, it is known as an escape sequence c
 sentence = "I won\'t shout."
 print(sentence)
 ```
-``` shell
+``` bash
 > I won't shout.
 ```
 
@@ -83,7 +83,7 @@ print(sentence)
 sentence = "I shouted \"Hooray!\""
 print(sentence)
 ```
-``` shell
+``` bash
 > I shouted "Hooray!"
 ```
 
@@ -92,7 +92,7 @@ print(sentence)
 sentence = "He\\She went to the market."
 print(sentence)
 ```
-``` shell
+``` bash
 > He\She went to the market.
 ```
 
@@ -101,7 +101,7 @@ print(sentence)
 sentence = "Name\tAge"
 print(sentence)
 ```
-``` shell
+``` bash
 > Name    Age
 ```
 
@@ -110,7 +110,7 @@ print(sentence)
 sentence = "My first sentence.\nMy second sentence."
 print(sentence)
 ```
-``` shell
+``` bash
 > My first sentence.
   My second sentence.
 ```
@@ -150,7 +150,7 @@ separator = " "
 full_name = first_name + separator + last_name
 print(full_name)
 ```
-``` shell
+``` bash
 > John Doe
 ```
 
@@ -161,7 +161,7 @@ cheer = "Hooray! "
 cheer = cheer * 3
 print(cheer)
 ```
-``` shell
+``` bash
 > Hooray! Hooray! Hooray! 
 ```
 
@@ -180,7 +180,7 @@ sentence = "wHeRe iS My CoFFee"
 print(sentence.capitalize())
 print(" hello")
 ```
-``` shell
+``` bash
 > Where is my coffee
 >  hello
 ```
@@ -191,7 +191,7 @@ Using the `lower` method will return the string with all lowercase characters.
 sentence = "wHeRe iS My CoFFee"
 print(sentence.lower())
 ```
-``` shell
+``` bash
 > where is my coffee
 ```
 
@@ -202,7 +202,7 @@ characters.
 sentence = "wHeRe iS My CoFFee"
 print(sentence.upper())
 ```
-``` shell
+``` bash
 > WHERE IS MY COFFEE
 ```
 
@@ -215,7 +215,7 @@ sentence = "wHeRe iS My CoFFee"
 print(sentence.title())
 print("you're a python legend".title())
 ```
-``` shell
+``` bash
 > Where Is My Coffee
 > You'Re A Python Legend
 ```
@@ -231,7 +231,7 @@ sentence = "how much wood would a wood chuck wood if a wood chuck could chuck wo
 print(sentence.count("wood"))
 print(sentence.count("would"))
 ```
-``` shell
+``` bash
 > 5
 > 1
 ```
@@ -244,7 +244,7 @@ sentence = "   wHeRe iS My CoFFee   "
 print(sentence)
 print(sentence.strip())
 ```
-``` shell
+``` bash
 >   wHeRe iS My CoFFee   
 > wHeRe iS My CoFFee
 ```
@@ -257,11 +257,20 @@ trailing part of the string. The characters in the argument are also case
 sensitive.
 
 ``` python
+sentence = "  []example.com"
+characters_to_remove = "[] mo.c"
+print(sentence.strip(characters_to_remove))
+```
+``` bash
+> example
+```
+
+``` python
 sentence = "   wHeRe iS My CoFFee   "
 print(sentence.strip('efsw'))
 print(sentence.strip('e fsw'))
 ```
-``` shell
+``` bash
 >    wHeRe iS My CoFFee   
 > HeRe iS My CoFF
 ```
@@ -277,7 +286,7 @@ print(sentence)
 sentence = sentence.replace("the", "a")
 print(sentence)
 ```
-``` shell
+``` bash
 > the canine chased the feline
 > a canine chased a feline
 ```
@@ -291,7 +300,7 @@ sentence = sentence.replace("words", "three", 1)
 sentence = sentence.replace("words", "simple", 1)
 print(sentence)
 ```
-``` shell
+``` bash
 > three simple words
 ```
 
@@ -317,7 +326,7 @@ print(file_name)
 file_name = file_name.title()
 print(file_name)
 ```
-``` shell
+``` bash
 > [Book]_learning-python-book-part-2.pdf
 > [book]_learning-python-book-part-2.pdf
 > []_learning-python-book-part-2.pdf
@@ -334,7 +343,7 @@ file_name = file_name.lower().replace("book", "", 1).replace("pdf", "")
 file_name = file_name.strip("[]_.").replace("-", " ").title()
 print(file_name)
 ```
-``` shell
+``` bash
 > Learning Python Book Part 2
 ```
 
@@ -355,7 +364,7 @@ print(sentence)
 sentence = sentence.upper()
 print(sentence)
 ```
-``` shell
+``` bash
 > hello world
 > HELLO WORLD
 > hello world
@@ -364,132 +373,178 @@ print(sentence)
 
 # String formatting
 
-The string type has a method `format` which is an extremely powerful way to
-present information as a string. The `format` method works a little like the
-replace method. You specify a format with placeholders, `{}` and then provide
-it with the parameters to place in those placeholders.
+The string type has a `format` method which is an extremely powerful way to
+present information as a string. It method works a little like the `replace`
+method and uses a *replacement field* surrounded by curly braces `{}`.
+
+``` python
+#!/usr/bin/env python3
+sentence = "My {} sentence"
+replacement_field = "original"
+print(sentence.format(replacement_field))
+```
+``` bash
+> My original sentence
+```
+
+We can do this with multiple variables at a time.
+
+The example uses *implicit* positioning. The first parameter in `format` will
+replace the first occurrence of a *replacement field*, the second parameter will
+replace the second occurrence of a *replacement field* and so on.
+
+``` python
+sentence = "{} {} {}"
+day_1 = "Monday"
+day_2 = "Tuesday"
+day_3 = "Wednesday"
+month_1 = "January"
+month_2 = "February"
+month_3 = "March"
+
+print(sentence.format(day_1, day_2, day_3))
+print(sentence.format(month_1, month_2, month_3))
+```
+``` bash
+> Monday Tuesday Wednesday
+> January February March
+```
+
+We can get more control of which parameter to use with our *replacement field* 
+using *explicit* positioning.
+
+In this example the *replacement field* has a *parameter index value*.
+A *parameter index value* begin from zero and indicate the position of which
+parameter to use. This means that the first parameter, `first_name` an index of
+zero, the second parameter `last_name` will then have an index of one. In the
+example, `{1}` refers to the parameter with an index of one which is the
+variable `last_name`.
 
 ``` python
 #!/usr/bin/env python3
 first_name = "Dwayne"
 last_name = "Hinterlang"
-full_name_format = "{}, {}"
-full_name = full_name_format.format(last_name, first_name)
-print(full_name)
+
+full_name = "{1}, {0}"
+
+print(full_name.format(first_name, last_name))
 ```
-``` shell
+``` bash
 > Hinterlang, Dwayne
 ```
-The `{}` got replaced with the variable values passed as parameters in the format
-method. How did it know which variable goes where? When using just `{}` the format
-method uses *implicit* positioning. The first parameter will replace the first
-occurrence of `{}`, the second parameter will replace the second `{}` and so on.
 
-We can get more control over this by using *explicit* positioning.
-``` python
-#!/usr/bin/env python3
-first_name = "Dwayne"
-last_name = "Hinterlang"
-full_name_format = "{1}, {0}"
-full_name = full_name_format.format(first_name, last_name)
-print(full_name)
-```
-``` shell
-> Hinterlang, Dwayne
-```
-Our format in this example has numbers inside the `{}` these numbers are parameter
-index values. Parameters are zero indexed meaning the first parameters index value
-is zero. Our format method will now replace our placeholder with the specific
-parameter at the index we specified. In the example, `{1}` refers to the parameter
-at position 1, which is `last_name`
-
-`format` can also specify the minimum amount of character space a parameter can use.
-This is called padding.
-``` python
-#!/usr/bin/env python3
-padded = "Hello"
-not_padded = "World"
-pad_format = "{0:10}{1}"
-print(pad_format(padded, not_padded))
-```
-``` shell
->      HelloWorld
-```
-The format string `{0:10}` now says, for the parameter at index zero `0` apply
-these rules `:` to take up at minimum 10 character spaces or pad 10 `10`
-
-We can specify which side the padding will be applied.
-``` python
-#!/usr/bin/env python3
-pad_on_right = "Hello"
-pad_on_left = "World"
-pad_format = "{0:<10}|{1:>10}"
-print(pad_format(padded, not_padded))
-```
-``` shell
-> Hello     |     World
-```
-
-
- Let's look at an example where we try display
-a shopping list receipt
+We can also use *explicit* positioning using a *field name* which is many times
+more readable. This example uses `{last_name}` as a *replacement field*. It uses
+`last_name` as the field name. The way we provide parameters changes as well in
+this example. We assign the variable `my_last_name` to the field name `last_name`
 
 ``` python
 #!/usr/bin/env python3
 
-price1 = 4.99
-quantity1 = 3
-name1 = "Item 1"
-description1 = "An every day item"
-total1 = price1 * quantity1
-
-price2 = 2.67
-quantity2 = 5
-name2 = "Item 2"
-description2 = "A cost effective condiment for steak"
-total2 = price2 * quantity2
-
-
-# Print a heading
-print("Name Description Price Qty Total")
-# Print a line item
-print(name1 + ' ' + description1 + ' ' + str(price1) + ' ' + str(quantity1) + ' ' + str(total1))
-print(name2 + ' ' + description2 + ' ' + str(price2) + ' ' + str(quantity2) + ' ' + str(total2))
+my_first_name = "Dwayne"
+my_last_name = "Hinterlang"
+full_name = "{last_name}, {first_name}"
+print(full_name.format(
+    last_name = my_last_name,
+    first_name = my_first_name))
 ```
-``` shell
-> Name Description Price Qty Total
-> Item 1 An every day item 4.99 3 14.97
-> Item 2 A cost effective condiment for steak 2.67 5 13.35
+``` bash
+Hinterlang, Dwayne
 ```
 
-This is okay, all the information is being displayed but it is terrible to read.
+Now that we can position the parameters, we can apply the [Format Specification](https://docs.python.org/3/library/string.html#format-specification-mini-language)
+to them. We do this by using a colon `:` and then the rules to apply after it.
+One of the *rules* we can apply is the minimum amount of character space
+a parameter can use. This is called padding. In this example we specify a
+*replacement field* with a padding of ten.
 
-[String Formatting Doc]("https://docs.python.org/3/library/string.html#formatstrings")
+``` python
+#!/usr/bin/env python3
+word1 = "Hello"
+word2 = "World"
+sentence = "{0:10}{1}"
+print(sentence.format(word1, word2))
+```
+``` bash
+> Hello     World
+```
+
+We can also indicate the style in which to apply padding, left `<` aligned,
+right `>` aligned or even center `^` aligned.
+
+``` python
+#!/usr/bin/env python3
+left = "Left"
+center = "Center"
+right = "Right"
+output = "|{0:<10}|{1:^20}|{2:>10}|"
+print(output.format(left, center, right))
+```
+``` bash
+> |Left      |       Center       |     Right|
+```
+
+We can also format other data types like *decimal* and *float* which has a
+default precision of six and applies rounding.
 
 ``` python
 print("{:d}".format(12)) # Decimal
 print("{:f}".format(123.123456789)) # Float
-print("{:.2f}".format(123.123456789)) # Float with precision of 2
-print("{:8.2f}".format(123.123456789)) # Float with precision of 2 and padding of 8
-print("{:052f}".format(123.123456789)) # Float with precision of 2 and padding of 8, zero filled
-[See the format specification mini-language]("https://docs.python.org/3/library/string.html#formatspec")
+```
+``` bash
+12
+12.123457
+```
 
-# implicit positional formatting
-print("{} is from {}".format("John", "Earth"))
-# explicit positional formatting
-print("{0} is from {1}".format("John", "Earth"))
+This example looks at specifying the precision to use `.2f`, combining it with
+padding `8.2f` as well as choosing a fill character other than space `08.2f`.
 
-# alias formatting
-print("{last_name}, {first_name}".format(
-
-    first_name="John",
-    last_name="Doe"
-))
+``` python
+print("{:.2f}".format(123.123456789))
+print("{:8.2f}".format(123.123456789))
+print("{:08.2f}".format(123.123456789))
+```
+``` bash
+123.12
+  123.12
+00123.12
 ```
 
 # User Input
 
+Getting information from the user to do a task for the user is important. In
+this example I show you the `input` method which provides the user with a prompt
+and then waits for the user to type in information and save it as a variable.
+
 ``` python
+name = input("Name: ")
+print(name)
+```
+``` bash
+> Name: Dwayne
+> Dwayne
+```
+
+We can use type casting with the `input` method, this can lead to errors for the
+user so be careful.
+
+``` python
+age = int(input("Age: "))
+print(age)
+age = int(input("Age: "))
+print(age)
+```
+``` base
+> Age: 30
+> 30
+> Age: thirty
+> ValueError: invalid literal for int() with base 10: 'thirty'
+```
+
+An example with a little of everything
+
+``` python
+#!/usr/bin/env python3
 first_name = str(input("What is your first name? "))
 middle_name = str(input("What is your middle name? "))
 last_name = str(input("What is your last name? "))
@@ -499,13 +554,14 @@ first_name = first_name.capitalize()
 middle_name = middle_name.capitalize()
 last_name = last_name.capitalize()
 
-candidate_format = "{age:3} - {first_name}, {middle_name_initial:.1}. {last_name}"
-print(candidate_format.format(
+candidate = "{age:3} - {first_name}, {middle_name_initial:.1}. {last_name}"
+print(candidate.format(
     first_name = first_name,
     middle_name_initial = middle_name,
     last_name = last_name,
     age = age
 ))
 ```
-
-> 30 - Dwayne, L. Hinterlang
+``` bash
+>  30 - Dwayne, L. Hinterlang
+```
