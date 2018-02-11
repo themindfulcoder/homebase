@@ -1,7 +1,7 @@
 ---
 title: "Learning Python Part 2"
-date: 2018-02-05
-draft: true
+date: 2018-02-11
+draft: false
 ---
 
 ![Languages are complex](language-word-cloud.jpg)
