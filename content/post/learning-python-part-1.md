@@ -44,12 +44,9 @@ name = "John Doe"
 print(type(name))
 print(name)
 ```
-
-Output
-
-``` shell
-<class 'str'>
-John Doe
+``` bash
+> <class 'str'>
+> John Doe
 ```
 
 An `integer` is a number without a decimal value, it can be either positive or negative. There are no restrictions on how large the number can be except for how much memory you have available on your machine.
@@ -61,13 +58,10 @@ print(type(age))
 print(age)
 print(big_integer)
 ```
-
-Output
-
-``` shell
-<class 'int'>
-12
-1234567890123456789012345678901234567890
+``` bash
+> <class 'int'>
+> 12
+> 1234567890123456789012345678901234567890
 ```
 
 A `float` is a number with a decimal value, even if the decimal value is zero, floats however have a restriction on the precision they can keep.
@@ -81,14 +75,11 @@ print(pi)
 print(zero_float)
 print(precise_float)
 ```
-
-Output
-
-``` shell
-<class 'float'>
-3.14
-4.0
-123.12345678901235
+``` bash
+> <class 'float'>
+> 3.14
+> 4.0
+> 123.12345678901235
 ```
 
 # Type casting
@@ -101,12 +92,9 @@ precise_float = 123.123456789012345678901234567890
 print(int(age))
 print(int(precise_float))
 ```
-
-Output
-
-``` shell
-12
-123
+``` bash
+> 12
+> 123
 ```
 
 >Note: type casting float to int will only keep the whole number before the decimals.
@@ -117,11 +105,8 @@ Be careful when casting types, you can cause your script to break like in this e
 weight = "50.5"
 print(int(weight))
 ```
-
-Output
-
-``` shell
-ValueError: invalid literal for int() with base 10: '50.5'
+``` bash
+> ValueError: invalid literal for int() with base 10: '50.5'
 ```
 
 # Operators
@@ -147,18 +132,15 @@ print(division)
 print(floor_division)
 print(remainder)
 ```
-
-Output
-
-``` shell
-9
-1
-4
-6
-16
-2.0
-2.0
-0.5
+``` bash
+> 9
+> 1
+> 4
+> 6
+> 16
+> 2.0
+> 2.0
+> 0.5
 ```
 
 Decimal division is the default, however you can change this using floats
@@ -166,11 +148,8 @@ Decimal division is the default, however you can change this using floats
 ``` python
 print(6.0/2.0)
 ```
-
-Output
-
-``` shell
-3.0
+``` bash
+> 3.0
 ```
 
 If you are familiar with math, the output of floor division is expected. For the rest of us, it is important to know that floor division will round down to the nearest whole number.
@@ -180,12 +159,9 @@ Floor division with floats will return a float and not an integer.
 print(7//2)
 print(7.0//2)
 ```
-
-Output
-
-``` shell
-3
-3.0
+``` bash
+> 3
+> 3.0
 ```
 
 One last thing to note about arithmetic, division by zero will cause an error.
@@ -193,11 +169,8 @@ One last thing to note about arithmetic, division by zero will cause an error.
 ``` python
 print(3/0)
 ```
-
-Output
-
-``` shell
-ZeroDivisionError: division by zero
+``` bash
+> ZeroDivisionError: division by zero
 ```
 
 ### Conclusion
