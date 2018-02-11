@@ -22,7 +22,7 @@ The AWS CLI came to my rescue! You can find out more about the AWS CLI [here](ht
 
 It offered me some simple commands for interacting with their services, S3 being one of them. To get started, you install it using the linked provided just above. Once installed, get it configured using `aws configure` it'll ask you some questions, like your *AccessKey* and *SecretKey* which you can generate in AWS console. Here comes the magic:
 
-``` shell
+``` bash
 aws s3 sync path/to/my/local/folder s3://my-bucket-name
 ```
 
