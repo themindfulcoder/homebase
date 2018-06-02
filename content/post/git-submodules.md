@@ -4,7 +4,7 @@ date: 2018-06-02T13:30:00+02:00
 draft: false
 ---
 
-# What is a submodule
+# What is a submodule?
 
 When cloning a git repository it will sometimes be that the superproject repository uses *submodules*.
 
@@ -14,7 +14,7 @@ You can identify this by the superproject containing a `.gitmodules` file in the
 
 # How do I correctly clone the superproject?
 
-There are a few steps that are required on your part before you can utilise the superproject repository as desired.
+There are a few steps that are required on your part before you can utilise the superproject repository as desired:
 
 Clone the repository to your local machine and change into the directory.
 
@@ -35,7 +35,7 @@ Pull the submodule projects at the referenced commit in the `.gitmodules` file t
 git submodule update
 ```
 
-# There is an even simpler way
+# There is an even simpler way!
 
 A quicker, simpler way to achieve this state is to use a special flag when cloning the project.
 
@@ -47,9 +47,9 @@ This will initialize and pull the superproject repository along with all submodu
 
 # How do I get the submodules upstream changes?
 
-When you need to get the upstream changes for your submodule you'll have to update your submodules referenced commit in the `.gitsubmodule` file.
+When you need to get the upstream changes for your submodule, you will have to update your submodules referenced commit in the `.gitsubmodule` file.
 
-We do this by changing into the submodule directory and performing a fetch and merge into the local code.
+We do this by changing into the submodule directory and performing a *fetch* and *merge* into the local code.
 
 ``` bash
 cd superproject/submoduleproject
