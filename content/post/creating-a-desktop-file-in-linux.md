@@ -10,13 +10,13 @@ I extracted the application to a folder and inside was `ts3client_runscript.sh` 
 Over time it became redundant to continually open the terminal to navigate and run the script to use the application.
 Here are the steps I took to enable it to be run from the application launcher.
 
-First, I wanted the application to be used regardless of which user I was logged in as. So I moved it from my `Downloads` folder into `/usr/local/share/`
+I wanted the application to be used regardless of which user I was logged in as. So I moved it from my `Downloads` folder into `/usr/local/share/`
 
 ``` bash
 sudo cp -R ~/Downloads/TeamSpeak3/ /usr/local/share/teamspeak/
 ```
 
-Next I needed to ensure that any user could run the `ts3client_runscript.sh` script now in `/usr/local/share/teamspeak`.
+I needed to ensure that any user could run the `ts3client_runscript.sh` script now in `/usr/local/share/teamspeak`.
 I gave read, write and execute permissions to the entire teamspeak folder.
 
 ``` bash
@@ -26,12 +26,14 @@ sudo chmod +rwx -R /usr/local/share/teamspeak/
 With this done, any user would have access to teamspeak and be able to run it. Next up I needed the launcher to be aware of it.
 I downloaded an image to use as an icon and saved it to `/usr/local/share/teamspeak/ts3icon.png`
 
-First, create a desktop file for your user.
+Here comes the part where we create a desktop file for your user.
+
 ``` bash
 touch $home/.local/share/applications/teamspeak.desktop
 ```
 
-Next use your favourite editor and place the following inside your teamspeak.desktop file.
+Use your favourite editor and place the following inside your `teamspeak.desktop` file.
+
 ``` bash
 [Desktop Entry]
 Name=Teamspeak
