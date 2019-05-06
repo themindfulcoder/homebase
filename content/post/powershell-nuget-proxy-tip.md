@@ -21,8 +21,8 @@ if ($proxy -eq $value)
     nuget sources Disable -Name "$source"
 }
 else {
-    Write-Host The $proxy proxy was applied.
     nuget config -Set HTTP_PROXY="$proxy"
+    Write-Host The $proxy proxy was applied.
     nuget source Enable -Name "$source"
 }
 ```
