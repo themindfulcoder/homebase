@@ -4,8 +4,6 @@ date: 2019-05-06
 draft: false
 ---
 
-# Powershell Nuget Proxy Tip
-
 Let's toggle nuget proxy configuration with a powershell alias.
 
 Using public nuget sources as well as private sources through a proxy can be tulmiltuous at times. That's why I wrote a little script to toggle the nuget proxy and enable or disable the private source depending on my location and sort of project I'm working on.
