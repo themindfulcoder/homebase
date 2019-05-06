@@ -14,8 +14,7 @@ $proxy = 'my-corp-proxy.com:8080'
 $source = "Private-Repository"
 
 $value = (nuget config HTTP_PROXY 2> $null)
-if ($proxy -eq $value)
-{
+if ($proxy -eq $value) {
     nuget config -Set HTTP_PROXY=
     Write-Host The $value proxy was removed.
     nuget sources Disable -Name "$source"
