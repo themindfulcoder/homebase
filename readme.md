@@ -1,5 +1,8 @@
 Yet another programmer blog...
 
+# Clone
+Consider using `git clone --recurse-submodules <<URL>>` to quickly pull submodules.
+
 # Install
 Run `sudo sh ./scripts/install-dependencies.sh`
 
