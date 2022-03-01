@@ -5,16 +5,16 @@ theme = "paperback"
 googleAnalytics = "UA-113445399-1"
 
 [params]
+    # your name to display by the copyright sign
+    AuthorName = "Dwayne Hinterlang"
 
-# your name to display by the copyright sign
-AuthorName = "Dwayne Hinterlang"
+    # tagline to show beneath homepage h1
+    Tagline = "Zen | Minimalism | Kaizen | Philosophy"
 
-# tagline to show beneath homepage h1
-Tagline = "Zen | Minimalism | Kaizen | Philosophy"
+    # number of posts to show on index
+    HomepagePosts = 3
 
-# number of posts to show on index
-HomepagePosts = 3
-
-GithubUsername = "themindfulcoder"
-TwitterUsername = "themindfulcoder"
-LinkedInUsername = "dhinterlang"
+    # social media
+    GithubUsername = "themindfulcoder"
+    TwitterUsername = "themindfulcoder"
+    LinkedInUsername = "themindfulcoder"
